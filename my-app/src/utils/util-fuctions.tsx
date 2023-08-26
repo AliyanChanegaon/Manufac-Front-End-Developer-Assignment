@@ -1,4 +1,3 @@
-
 export function calculateMean(arr: number[]) {
   const sum = arr.reduce((acc, val) => acc + val, 0);
   return sum / arr.length;
@@ -14,6 +13,8 @@ export function calculateMedian(arr: number[]) {
   }
 }
 
+
+
 export function calculateMode(arr: number[]) {
   const counts: Record<string, number> = {};
   arr.forEach((val) => {
@@ -23,7 +24,7 @@ export function calculateMode(arr: number[]) {
     counts[val]++;
   });
 
-  let mode = 0;
+  let mode=0;
   let maxCount = 1;
   for (const val in counts) {
     if (counts[val] > maxCount) {

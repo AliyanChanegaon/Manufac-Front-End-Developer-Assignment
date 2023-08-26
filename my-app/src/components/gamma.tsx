@@ -6,35 +6,33 @@ import {
   calculateMode,
 } from "../utils/util-fuctions";
 
-const Flavanoids = ({ data }: { data: DataItemsProp[] }) => {
+export function GammaStats({ data }: { data: DataItemsProp[] }) {
   const classes: Record<string, number[]> = {};
 
   data.forEach((item) => {
-    const classNo = item.Alcohol;
-    
-    if (!classes[classNo]) {
-      classes[classNo] = [];
-    }
+    const classNum = item.Alcohol;
 
-    classes[classNo].push(+item.Flavanoids);
+    const gamma = (+item.Ash * +item.Hue) / +item.Magnesium;
+    if (!classes[classNum]) {
+      classes[classNum] = [];
+    }
+    classes[classNum].push(gamma);
   });
 
 
   const result: ResultModelProp = {};
   for (const classNum in classes) {
     const classData = classes[classNum];
-
-
     result[classNum] = {
       Mean: calculateMean(classData),
       Median: calculateMedian(classData),
-       Mode: calculateMode(classData),
+      Mode: calculateMode(classData),
     };
   }
 
   return (
     <div>
-      <h2>Flavanoids</h2>
+      <h2>Gamma</h2>
       <table>
         <thead>
           <tr>
@@ -59,14 +57,20 @@ const Flavanoids = ({ data }: { data: DataItemsProp[] }) => {
           </tr>
           <tr>
             <td>Mode</td>
-            {Object.keys(result).map((classNum) => (
-              <td key={classNum}>{result[classNum]?.Mode?.toFixed(3)}</td>
-            ))}
+            {Object.keys(result).map((classNum) => {
+              console.log(result[classNum].Mode);
+
+              return (
+                <td key={classNum}>
+                  {result[classNum].Mode === 0
+                    ? 0
+                    : result[classNum].Mode.toFixed(3)}
+                </td>
+              );
+            })}
           </tr>
         </tbody>
       </table>
     </div>
   );
-};
-
-export default Flavanoids;
+}
