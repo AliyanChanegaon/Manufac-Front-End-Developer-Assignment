@@ -4,7 +4,7 @@ import { GammaStats } from "./gamma";
 
 const Main = () => {
   return (
-    <div style={{ margin: "auto", width: "380px" }}>
+    <div style={{ margin: "auto", width: "348px" }}>
       <Flavanoids data={data} />
       <GammaStats data={data} />
     </div>
