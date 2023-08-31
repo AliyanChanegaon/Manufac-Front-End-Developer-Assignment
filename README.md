@@ -46,7 +46,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 <table>
   <tr>
     <td><img src="https://i.ibb.co/PThHDgN/new1.png"  alt="" /></td>
-    <td><img src="https://i.ibb.co/D4WWV92/new2.png"  alt="" /></td>
+    <td><img src="https://i.ibb.co/D975Crg/new2.png"  alt="" /></td>
   </tr>
 </table>
 ## Learn More
