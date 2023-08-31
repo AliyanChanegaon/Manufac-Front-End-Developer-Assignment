@@ -13,7 +13,7 @@ export function GammaStats({ data }: { data: DataItemsProp[] }) {
   data.forEach((item) => {
     const classNum = item.Alcohol;
 
-    const gamma = (+item.Ash * +item.Hue) / +item.Magnesium;
+    const gamma = +((+item.Ash * +item.Hue) / +item.Magnesium).toFixed(3);
     if (!classes[classNum]) {
       classes[classNum] = [];
     }

@@ -27,7 +27,7 @@ export const Table = ({ data }: { data: ResultModelProp }) => {
         <tr>
           <td>Mode</td>
           {Object.keys(data).map((classNum) => {
-            console.log(data[classNum].Mode);
+           
 
             return (
               <td key={classNum}>
